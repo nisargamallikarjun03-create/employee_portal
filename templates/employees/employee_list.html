@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Employee List</h2>
+
+{% for employee in employees %}
+
+<p>
+    <a href="/employees/{{ employee.id }}/">
+        Employee ID: {{ employee.id }}
+    </a>
+</p>
+
+<p>Name: {{ employee.name }}</p>
+<p>Department: {{ employee.department }}</p>
+<p>Designation: {{ employee.designation }}</p>
+
+<hr>
+
+{% if employee.department == "IT" %}
+    <p>This employee works in IT.</p>
+{% endif %}
+
+{% empty %}
+    <p>No employees found.</p>
+{% endfor %}
+
+{% endblock %}
